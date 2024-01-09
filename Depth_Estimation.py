@@ -12,7 +12,7 @@ import time
 start_time = time.time()
 
 # Load the image patch
-blurred_image = cv2.imread(r'25CM-A.png')
+blurred_image = cv2.imread(r'275CM-A.png')
 
 # Convert images to grayscale
 gray_blurred = functions.convert_to_grayscale(blurred_image)
