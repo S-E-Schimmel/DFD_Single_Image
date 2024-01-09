@@ -12,9 +12,9 @@ import time
 start_time = time.time()
 
 # Load the image patch
-blurred_image = cv2.imread(r'50CM-A.png')
+blurred_image = cv2.imread(r'Photos/100CM/100CM-A.png')
 
-# Convert images to grayscale
+# Convert image to grayscale
 gray_blurred = functions.convert_to_grayscale(blurred_image)
 
 # Determine the diameter of the blur circle in terms of pixels

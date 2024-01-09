@@ -1,7 +1,7 @@
 import numpy as np
 
 focus=250#mm (=focal distance, the distance at which a subject would be in perfect focus)
-distance=1000#mm (=actual subject distance, the point whose CoC we are calculating)
+distance=1500#mm (=actual subject distance, the point whose CoC we are calculating)
 F=18#mm (=focal length of lens)
 N=3.5 #(=f-number at which the lens aperture is set)
 sensor_width=22.3 #mm (= width of the camera sensor)

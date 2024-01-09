@@ -38,9 +38,9 @@ def determine_blur_circle_diameter(gray_blurred):
         lower_limit = sum_of_lower_limit_averages / (n + 1) # divide by amount of columns for total average value
         lower_limit = round(lower_limit,1) # round total average value by 1 decimal
 
-    threshold=0.125*(upper_limit-lower_limit) # Calculate a threshold variable by taking 12.5% of the difference between the calculated upper and lower limit
-    threshold_limit_upper=upper_limit-threshold # Determine an upper threshold value
-    threshold_limit_lower=lower_limit+threshold # Determine the lower threshold value
+    threshold_factor=0.125*(upper_limit-lower_limit) # Calculate a threshold variable by taking 12.5% of the difference between the calculated upper and lower limit
+    threshold_limit_upper=upper_limit-threshold_factor # Determine an upper threshold value
+    threshold_limit_lower=lower_limit+threshold_factor # Determine the lower threshold value
 
     blur_circle=[] # create an empty list to store the left and right index of the blur circle into
     left_limit=0 # initialize a counting variable at 0
@@ -74,7 +74,8 @@ def determine_blur_circle_diameter(gray_blurred):
                     right_limit+=1 # add 1 to the variable to ensure the elif-statement will not execute again (we only require one lower limit)
 
     blur_circle_diameter=np.abs(blur_circle[0]-blur_circle[1]) # Determine blur circle pixel diameter obtained
-    blur_circle_diameter_pixels=(2.2825*blur_circle_diameter) # Multiply blur circle pixel diameter by a factor to compensate for threshold value used earlier to obtain actual blur circle pixel diameter
+    print(blur_circle_diameter)
+    blur_circle_diameter_pixels=(2.2825*blur_circle_diameter) # Multiply blur circle pixel diameter by a factor to compensate for the threshold factor used earlier to obtain actual blur circle pixel diameter
     return blur_circle_diameter_pixels
 
 # Calculate object distance
