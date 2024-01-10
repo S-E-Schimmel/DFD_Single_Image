@@ -7,7 +7,7 @@ Depth from Defocus using a single blurred image
 import cv2
 import numpy as np
 
-# Camera intrinsic values -> CANON EOS 500D
+# Camera intrinsic values -> CANON EOS 500D paired with a EF-S 18-55mm lens
 F=18 #mm (= Focal Length of Camera Lens)
 focus=250 #mm (= focal distance, the distance at which a subject would be in perfect focus)
 f=3.5 # (= f-number at which the lens aperture is set)
