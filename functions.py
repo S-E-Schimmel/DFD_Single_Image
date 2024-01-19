@@ -14,6 +14,9 @@ f=3.5 # (= f-number at which the lens aperture is set)
 sensor_width=22.3 #mm (= Width of the camera sensor in millimeters)
 image_width=4752 # (= Width of total image captured in pixels)
 
+# Calibration Factor (To be determined experimentally, differs per camera setup)
+calibration_factor = 2.2825
+
 # Convert image to grayscale image (also changes image shape from height, width, channel to height, width only)
 def convert_to_grayscale(blurred_image):
     gray_blurred = cv2.cvtColor(blurred_image, cv2.COLOR_BGR2GRAY)
@@ -76,7 +79,7 @@ def determine_blur_circle_diameter(gray_blurred):
                     right_limit+=1 # Add 1 to the counting variable to ensure the if-statement will not execute again (we only require one lower limit)
 
     blur_circle_diameter=np.abs(blur_circle[0]-blur_circle[1]) # Determine blur circle pixel diameter obtained
-    blur_circle_diameter_pixels=(2.2825*blur_circle_diameter) # Multiply blur circle pixel diameter by a factor to compensate for the threshold factor used earlier to obtain actual blur circle pixel diameter
+    blur_circle_diameter_pixels=(calibration_factor*blur_circle_diameter) # Multiply blur circle pixel diameter by a factor to compensate for the threshold factor used earlier to obtain actual blur circle pixel diameter
     return blur_circle_diameter_pixels
 
 # Calculate object distance
