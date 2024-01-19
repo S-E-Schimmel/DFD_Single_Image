@@ -79,6 +79,7 @@ def determine_blur_circle_diameter(gray_blurred):
                     right_limit+=1 # Add 1 to the counting variable to ensure the if-statement will not execute again (we only require one lower limit)
 
     blur_circle_diameter=np.abs(blur_circle[0]-blur_circle[1]) # Determine blur circle pixel diameter obtained
+    print('Measured Blur Circle Diameter (pixels):' , blur_circle_diameter)
     blur_circle_diameter_pixels=(calibration_factor*blur_circle_diameter) # Multiply blur circle pixel diameter by a factor to compensate for the threshold factor used earlier to obtain actual blur circle pixel diameter
     return blur_circle_diameter_pixels
 
